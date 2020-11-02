@@ -6,5 +6,8 @@ urlpatterns=[
     path('Destinos/', views.Destinos, name='Destinos'),
     path('Pasajes/', views.Pasajes, name='Pasajes'),
 
+   path('reserva/<int:pk>/', views.ReservaDetailView.as_view(), name='reserva_detail'),
+
+    path('reserva/', views.ReservaListView.as_view(), name='reserva')
     
 ]

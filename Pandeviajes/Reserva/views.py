@@ -24,3 +24,11 @@ def Pasajes(request):
         request,
         'Pasajes.html',
     )
+
+
+class ReservaListView(generic.ListView):
+    model= Reserva
+    paginate_by=10
+
+class ReservaDetailView(generic.DetailView):
+    model: Reserva 
