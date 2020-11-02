@@ -1,3 +1,26 @@
 from django.shortcuts import render
+from . models import Reserva
+from django.views import generic
 
 # Create your views here.
+def index(request):
+    num_reserva= Reserva.objects.all().count()
+   
+
+    return render(
+        request,
+        'index.html',
+        context={'num_reserva': num_reserva,},
+    )
+def Destinos(request):
+
+    return render(
+        request,
+        'Destinos.html',
+    )
+def Pasajes(request):
+
+    return render(
+        request,
+        'Pasajes.html',
+    )
