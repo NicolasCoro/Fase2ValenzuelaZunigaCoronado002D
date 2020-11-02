@@ -32,3 +32,18 @@ class ReservaListView(generic.ListView):
 
 class ReservaDetailView(generic.DetailView):
     model: Reserva 
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+class ReservaCreate(CreateView):
+    model= Reserva
+    fields= '__all__'
+    initial={'destinos': 'NA'}
+class ReservaUpdate(UpdateView):
+    model= Reserva
+    fields= '__all__'
+class ReservaDelete(DeleteView):
+    model = Reserva
+    sucess_url= reverse_lazy('reserva')   
+
