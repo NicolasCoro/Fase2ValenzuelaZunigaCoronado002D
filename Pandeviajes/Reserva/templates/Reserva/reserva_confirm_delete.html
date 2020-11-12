@@ -5,10 +5,10 @@
 <link rel="stylesheet" href="{% static 'css/Estilos5.css' %}">
 <div id="formulario">
 <h1>Borrar una reserva</h1>
-<p>Estas seguro de eliminar a: {{reserva.nombres}}?</p>
 
-<form action="" method="post">
-    {% csrf_token %}
+
+<form action="" method="post"> {% csrf_token %}
+    <p>Estas seguro de eliminar a: {{reserva.nombres}}?</p>
     <input type="submit" action="" value="Si, borrar.">
 </form>
 </div>

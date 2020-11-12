@@ -1,19 +1,23 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Estilos5.css' %}">
+    <div id="formulario">
     <h1>Listado de reservas</h1>
-    {% if reserva_list}
+    {% if reserva_list %}
     <ul>
         {% for reserva in reserva_list %}
-         <li>
-        <a href="{{reserva.get_absolute_url }}">{{reserva.nombres}}</a>({{reserva.rut}})
+        <li>
+            <a href="{{ reserva.get_absolute_url }}">{{ reserva.nombres }}</a>
+            <p>Rut: {{reserva.rut}}</p>
         </li>
         {% endfor %}
     
     </ul>
     {% else %}
         <p> no hay reservas en la empresa Pandeviajes.</p>
+        
     {% endif %}
-
+    </div>
 {% endblock %}

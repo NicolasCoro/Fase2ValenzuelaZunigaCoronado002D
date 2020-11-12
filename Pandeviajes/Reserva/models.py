@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -7,9 +8,9 @@ class Reserva(models.Model):
 	apep=models.CharField(max_length=20)
 	apem=models.CharField(max_length=20)
 	rut=models.CharField(max_length=9)
-	edad=models.IntegerField(max_length=9)
-	cantP=models.IntegerField(max_length=3)
-	telef=models.IntegerField(max_length=9)
+	edad=models.IntegerField(default=0)
+	cantP=models.IntegerField(default=0)
+	telef=models.IntegerField(default=0)
 	SEL_DEST = (
 		('NA', 'Selecciona un destino'),
 		('HAWAI', 'Hawai'),
@@ -32,3 +33,7 @@ class Reserva(models.Model):
 	
 	def _str_(self):
 		return self.nombre	
+
+	
+	def get_absolute_url(self):
+		return reverse('reserva_detail', args=[str(self.id)])

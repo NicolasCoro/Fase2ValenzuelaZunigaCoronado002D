@@ -1,18 +1,14 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-
-<h1>Cliente que reserva: {{reserva.nombres}}</h1>
-<p>{{reserva.apep}} {{reserva.apem}}</p>
-
-<div style="margin-left: 20px; margin-top:20px;">
-    <h4>Numero de reservas</h4>
-    <dl>
-        {%for reserva in reserva.nombre_set.all%}
-           <dt> ({{reserva.rut.set_all.count}})</dt>
-           <dd>{{reserva.summary}}</dd>
-        {%endfor%}
-    </dl>
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/Estilos5.css' %}">
+<div id="formulario">
+    <h1>Cliente que reserva: {{reserva.nombres}} </h1>
+    <p>Rut: {{reserva.rut}} </p>
+    <p>Edad: {{reserva.edad}}</p>
+    <p>cantidad de pasajes: {{reserva.cantP}}</p>
+    <p>Telefono: {{reserva.telef}}</p>
+   
 </div>
-{%endblock%}
+{% endblock %}

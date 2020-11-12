@@ -2,6 +2,8 @@ from django.shortcuts import render
 from . models import Reserva
 from django.views import generic
 
+
+
 # Create your views here.
 def index(request):
     num_reserva= Reserva.objects.all().count()
@@ -31,19 +33,23 @@ class ReservaListView(generic.ListView):
     paginate_by=10
 
 class ReservaDetailView(generic.DetailView):
-    model: Reserva 
+    model= Reserva 
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+
 
 class ReservaCreate(CreateView):
     model= Reserva
     fields= '__all__'
     initial={'destinos': 'NA'}
+    
+    
 class ReservaUpdate(UpdateView):
     model= Reserva
     fields= '__all__'
+    
 class ReservaDelete(DeleteView):
     model = Reserva
-    sucess_url= reverse_lazy('reserva')   
-
+    success_url = reverse_lazy('reserva_list')
+   
