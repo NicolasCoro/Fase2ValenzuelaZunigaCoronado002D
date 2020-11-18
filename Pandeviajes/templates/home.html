@@ -1,0 +1,32 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    
+<div class="full-screen">
+    <video src="{% static 'css/video.mp4' %}" autoplay muted loop></video>
+    <div class="bienvenida" >
+    <h1>Pandeviajes</h1>
+
+{% if user.is_authenticated %}
+  <p class="si">Estas registrado como: {{user.username}} </p>
+  <a href="{% url 'logout' %}">sign out</a>
+  <div class="resetpass">
+  <a class="boton" style="color: green;" href="{% url 'signup' %}">Crear usuarios</a>
+  </div>
+{% else %}
+  <p class="no">No estas registrado</p>
+  <a href="{% url 'login' %}">sign in</a>
+  <div class="resetpass">
+  <a class="boton" style="color: red;" href="{% url 'password_reset' %}">Recuperar contraseña</a>
+  </div>
+{% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+
